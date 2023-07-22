@@ -8,8 +8,6 @@ using System.Linq.Expressions;
 
 namespace SipayApi.Service;
 
-
-
 [ApiController]
 [Route("sipy/api/[controller]")]
 public class TransactionController : ControllerBase
@@ -22,7 +20,6 @@ public class TransactionController : ControllerBase
         this.mapper = mapper;
 
     }
-
     // GetByParameter metodu filtre kriterlerine göre Transaction varlıklarını sorgular ve sonuçları TransactionResponse tipinde döndürür.
     [HttpGet("GetByParameter")]
     public ApiResponse<List<TransactionResponse>> GetByParameter([FromQuery] int? accountNumber, [FromQuery] decimal? minAmountCredit, [FromQuery] decimal? maxAmountCredit, [FromQuery] decimal? minAmountDebit, [FromQuery] decimal? maxAmountDebit, [FromQuery] string? description, [FromQuery] DateTime? beginDate, [FromQuery] DateTime? endDate, [FromQuery] string? referenceNumber)
