@@ -42,17 +42,8 @@ public class Startup
               opts.UseNpgsql(dbConfig));
         }
 
-
-        services.AddScoped<ICustomerRepository, CustomerRepository>();
-        services.AddScoped<IAccountRepository, AccountRepository>();
         services.AddScoped<ITransactionRepository, TransactionRepository>();
 
-
-        var config = new MapperConfiguration(cfg =>
-        {
-            cfg.AddProfile(new MapperConfig());
-        });
-        services.AddSingleton(config.CreateMapper());
 
     }
 
